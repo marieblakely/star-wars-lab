@@ -1,8 +1,8 @@
 const StarshipList = () => {
   return ( 
-    <main>
-      <h1>Starships!!!</h1>
-    </main>
+    <div className="page-container">
+      <h1 className="animate__animated animate__fadeInUpBig">darth vader!</h1>
+      </div>
   )
 }
 
