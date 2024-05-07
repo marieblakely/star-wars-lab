@@ -1,3 +1,15 @@
+.starship-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
 .starship-card {
-  background-color: aqua;
+  background-color: white;
+  border: 16px black;
+  padding: 8px;
+  border-radius: 8px;
 }
