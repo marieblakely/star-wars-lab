@@ -26,7 +26,7 @@ const StarshipList = () => {
   return ( 
     <>
     <div className="page-container">
-      <h1 className="animate__animated animate__fadeInUpBig">Starships!</h1>
+      <h1 className="animate__animated animate__fadeInUpBig">STARSHIPS!</h1>
       <main className="starship-list">
         {starshipList.map((starship, idx) =>
           <NavLink key={idx} to={`/starships/${starship.url.slice(32)}`}>
