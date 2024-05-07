@@ -1,26 +1,26 @@
 //npm modules
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 //services
-
+import { getAllStarships } from "../../Services/sw-api"
 //css
 import './StarshipList.css'
 
 const StarshipList = () => {
 //Initialize starshipList state:
-const [starshipList, setStarshipList] = useState([])
+  const [starshipList, setStarshipList] = useState([])
 
-useEffect(() => {
-  const fetchStarshipList = async () => {
-    //API Call
-    const starshipData = await getAllStarships()
-    setStarshipList(starshipData.results)
-  }
-  fetchStarshipList()
-}, [])
+  useEffect(() => {
+    const fetchStarshipList = async () => {
+      //API Call
+      const starshipData = await getAllStarships()
+      setStarshipList(starshipData.results)
+      console.log(starshipData.results)
+    } 
+    fetchStarshipList()
+  }, [])
 
-if(!StarshipList.length) return <h1>Loading Starships...</h1>
-
+  if(!starshipList.length) return <h1>Loading Starships...</h1>
 
 
   return ( 
@@ -29,10 +29,11 @@ if(!StarshipList.length) return <h1>Loading Starships...</h1>
       <h1 className="animate__animated animate__fadeInUpBig">Starships!</h1>
       <main className="starship-list">
         {starshipList.map((starship, idx) =>
-          <div className="starship-card"
-          key={idx}>
-          <Link to={`/starships/${starship.url.replace("https://swapi.dev/api/starships/", "")}`}> {starship.name} </Link>
-          </div>
+          <NavLink key={idx} to={`/starships/${starship.url.slice(32)}`}>
+            <div className="starship-card" >
+              {starship.name}
+            </div>
+          </NavLink>
         )}
       </main>
     </div>
